@@ -1,0 +1,164 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "http://example.com/example.json",
+    "type": "object",
+    "title": "The root schema",
+    "description": "The root schema comprises the entire JSON document.",
+    "default": {},
+    "required": [
+        "room"
+    ],
+    "additionalProperties": false,
+    "properties": {
+        "room": {
+            "$id": "#/properties/room",
+            "type": "object",
+            "title": "The room schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": {},
+            "required": [
+                "sensor"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "sensor": {
+                    "$id": "#/properties/room/properties/sensor",
+                    "type": "array",
+                    "title": "The sensor schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": [],
+                    "additionalItems": true,
+                    "items": {
+                        "anyOf": [
+                            {
+                                "$id": "#/properties/room/properties/sensor/items/anyOf/0",
+                                "type": "object",
+                                "title": "The first anyOf schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": {},
+                                "required": [
+                                    "id",
+                                    "category",
+                                    "temperature",
+                                    "humadity",
+                                    "expire"
+                                ],
+                                "additionalProperties": false,
+                                "properties": {
+                                    "id": {
+                                        "$id": "#/properties/room/properties/sensor/items/anyOf/0/properties/id",
+                                        "type": "string",
+                                        "minimum": 3, 
+                                        "title": "// for the string type, there should not have minimum//The id schema",
+                                        "description": "An explanation about the purpose of this instance.",
+                                        "default": "",
+                                        "examples": [
+                                            "001"
+                                        ]
+                                    },
+                                    "category": {
+                                        "$id": "#/properties/room/properties/sensor/items/anyOf/0/properties/category",
+                                        "type": "string",
+                                        "title": "The category schema",
+                                        "description": "An explanation about the purpose of this instance.",
+                                        "default": "",
+                                        "examples": [
+                                            "abc"
+                                        ]
+                                    },
+                                    "temperature": {
+                                        "$id": "#/properties/room/properties/sensor/items/anyOf/0/properties/temperature",
+                                        "type": "number",
+                                        "title": "The temperature schema",
+                                        "description": "An explanation about the purpose of this instance.",
+                                        "default": 0.0,
+                                        "examples": [
+                                            33.9
+                                        ]
+                                    },
+                                    "humadity": {
+                                        "$id": "#/properties/room/properties/sensor/items/anyOf/0/properties/humadity",
+                                        "type": "integer",
+                                        "title": "The humadity schema",
+                                        "description": "An explanation about the purpose of this instance.",
+                                        "default": 0,
+                                        "examples": [
+                                            60
+                                        ]
+                                    },
+                                    "expire": {
+                                        "$id": "#/properties/room/properties/sensor/items/anyOf/0/properties/expire",
+                                        "type": "string",
+                                        "title": "The expire schema",
+                                        "description": "An explanation about the purpose of this instance.",
+                                        "default": "",
+                                        "examples": [
+                                            "2024/02/28"
+                                        ]
+                                    }
+                                }
+                            },
+                            {
+                                "$id": "#/properties/room/properties/sensor/items/anyOf/1",
+                                "type": "object",
+                                "title": "The second anyOf schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": {},                               
+                                "required": [
+                                    "id",
+                                    "category",
+                                    "temperature",
+                                    "humadity"
+                                ],
+                                "additionalProperties": false,
+                                "properties": {
+                                    "id": {
+                                        "$id": "#/properties/room/properties/sensor/items/anyOf/1/properties/id",
+                                        "type": "string",
+                                        "title": "The id schema",
+                                        "description": "An explanation about the purpose of this instance.",
+                                        "default": "",
+                                        "examples": [
+                                            "002"
+                                        ]
+                                    },
+                                    "category": {
+                                        "$id": "#/properties/room/properties/sensor/items/anyOf/1/properties/category",
+                                        "type": "string",
+                                        "title": "The category schema",
+                                        "description": "An explanation about the purpose of this instance.",
+                                        "default": "",
+                                        "examples": [
+                                            "abc"
+                                        ]
+                                    },
+                                    "temperature": {
+                                        "$id": "#/properties/room/properties/sensor/items/anyOf/1/properties/temperature",
+                                        "type": "number",
+                                        "title": "The temperature schema",
+                                        "description": "An explanation about the purpose of this instance.",
+                                        "default": 0.0,
+                                        "examples": [
+                                            34.7
+                                        ]
+                                    },
+                                    "humadity": {
+                                        "$id": "#/properties/room/properties/sensor/items/anyOf/1/properties/humadity",
+                                        "type": "integer",
+                                        "title": "The humadity schema",
+                                        "description": "An explanation about the purpose of this instance.",
+                                        "default": 0,
+                                        "examples": [
+                                            67
+                                        ]
+                                    }
+                                }
+                            }
+                        ],
+                        "$id": "#/properties/room/properties/sensor/items"
+                    }
+                }
+            }
+        }
+    }
+}

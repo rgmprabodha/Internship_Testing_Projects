@@ -1,0 +1,135 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema",
+	"$id": "http://example.com/room.json",
+	"type": "object",
+	"title": "The root schema",
+	"description": "The root schema comprises the entire JSON document.",
+	"default": {
+	},
+	"required": [
+		"room"
+	],
+	"additionalProperties": false,
+	"properties": {
+		"room": {
+			"$id": "#/properties/room",
+			"type": "array",
+			"minItems": 2,
+			"maxItems": 5,
+			"title": "The room schema",
+			"description": "An explanation about the purpose of this instance.",
+			"default": [
+			],
+			"additionalItems": true,
+			"items": {
+				"$id": "#/properties/room/items",
+				"type": "object",
+				"title": "The first anyOf schema",
+				"description": "An explanation about the purpose of this instance.",
+				"default": {
+				},
+				"required": [
+					"id",
+					"plants",
+					"alarm",
+					"sensor"
+				],
+				"additionalProperties": false,
+				"properties": {
+					"id": {
+						"$id": "#/properties/room/items/properties/id",
+						"type": "string",
+						"title": "The id schema",
+						"description": "An explanation about the purpose of this instance.",
+						"default": ""
+					},
+					"plants": {
+						"$id": "#/properties/room/items/anyOf/0/properties/plants",
+						"type": "array",
+						"minItems": 2,
+						"maxItems": 5,
+						"title": "The plants schema",
+						"description": "An explanation about the purpose of this instance.",
+						"default": [
+						],
+						"additionalItems": true,
+						"items": {
+							"$id": "#/properties/room/items/anyOf/0/properties/plants/items",
+							"type": "string",
+							"title": "The first anyOf schema",
+							"description": "An explanation about the purpose of this instance.",
+							"default": ""
+						}
+					},
+					"alarm": {
+						"$id": "#/properties/room/items/anyOf/0/properties/alarm",
+						"type": "string",
+						"enum": ["four", "five"],
+						"title": "The alarm schema",
+						"description": "An explanation about the purpose of this instance."						
+					},
+					"sensor": {
+						"$id": "#/properties/room/items/properties/sensor",
+						"type": "array",
+						"minItems": 2,
+						"maxItems": 5,
+						"title": "The sensor schema",
+						"description": "An explanation about the purpose of this instance.",
+						"default": [
+						],
+						"additionalItems": true,
+						"items": {
+							"type": "object",
+							"title": "The first anyOf schema",
+							"description": "An explanation about the purpose of this instance.",
+							"default": {
+							},
+							"additionalProperties": false,
+							"properties": {
+								"id": {
+									"$id": "#/properties/room/items/properties/sensor/items/properties/id",
+									"type": "string",
+									"title": "The id schema",
+									"description": "An explanation about the purpose of this instance.",
+									"default": ""
+								},
+								"category": {
+									"$id": "#/properties/room/items/properties/sensor/items/properties/category",
+									"type": "string",
+									"title": "The category schema",
+									"description": "An explanation about the purpose of this instance.",
+									"default": ""
+								},
+								"temperature": {
+									"$id": "#/properties/room/items/properties/sensor/items/properties/temperature",
+									"type": "number",
+									"minimum": 16,
+									"exclusiveMaximum": 32,
+									"title": "The temperature schema",
+									"description": "An explanation about the purpose of this instance.",
+									"default": 0.0
+								},
+								"humidity": {
+									"$id": "#/properties/room/items/properties/sensor/items/properties/humidity",
+									"type": "integer",
+									"exclusiveMinimum": 24,
+									"maximum": 80,
+									"title": "The humidity schema",
+									"description": "An explanation about the purpose of this instance.",
+									"default": 0
+								},
+								"expire": {
+									"$id": "#/properties/room/items/properties/sensor/items/properties/expire",
+									"type": "string",
+									"title": "The expire schema",
+									"description": "An explanation about the purpose of this instance.",
+									"default": ""
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,13 @@
+{
+    "children": [
+        {
+            "name": "foo",
+            "otherProperty": "bar"
+        },
+        {
+            "name": "boo",
+            "otherProperty2": "baz",
+            "otherProperty3": "baz2"
+        }
+    ]
+}

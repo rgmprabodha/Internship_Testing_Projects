@@ -1,0 +1,20 @@
+@prefix ex: <http://example.com/ns#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+
+ex:Sensor1 a ex:Sensor ;
+		ex:temperature 32.790 ;
+		ex:temperature 23.33 ;
+		ex:hello 88 ;
+		ex:humadity 59.27 .
+		
+
+ex:Sensor2 a ex:Sensor ;
+		ex:temperature 33.33 .			
+	
+		
+ex:Lamp1 a ex:Lamp ;
+	ex:id 122 ;
+	ex:id 122 ;
+	ex:status "ON" .

@@ -1,0 +1,49 @@
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ite: <http://w3id.org/sparql-generate/iter/>
+PREFIX fun: <http://w3id.org/sparql-generate/fn/>
+PREFIX schema: <http://schema.org/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX iter: <http://w3id.org/sparql-generate/iter/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX ex: <http://example/com/>
+
+GENERATE { 
+
+	<http://loc.emaple.com/room/{?roomId}> a ex:room;
+		ex:id ?roomId ;
+		ex:hasSensor <http://loc.example.com/room/sensor/{?sensorId}>;
+		ex:hasPlant ?plant.
+
+ 	<http://loc.example.com/room/sensor/{?sensorId}> a ex:sensor;
+	    ex:id ?sensorId;
+	    ex:category ?category;
+	    ex:temperature ?temperature;
+	    ex:humidity ?humidity;
+	    ex:expire ?expire.
+
+}
+
+SOURCE <https://saint-etienne-gbfs.klervi.net/gbfs/en/station_information.json> AS ?source
+
+ITERATOR iter:JSONPath(?source, "$.room[*]") AS ?room
+ITERATOR iter:JSONPath(?room, "$.sensor[*]") AS ?sensor
+ITERATOR iter:JSONPath(?room, "$.plants[*]") AS ?plant
+
+WHERE {
+	BIND(STR(fun:JSONPath(?room, "$.id")) AS ?roomId)
+    BIND(STR(fun:JSONPath(?sensor, "$.id")) AS ?sensorId)
+    BIND(STR(fun:JSONPath(?sensor,"$.category")) AS ?category)
+    # BIND(xsd:decimal(STR(fun:JSONPath(?sensor,"$.temperature"))) AS ?temperature)
+    BIND(STR(fun:JSONPath(?sensor,"$.temperature")) AS ?temperature)
+    BIND(STR(fun:JSONPath(?sensor,"$.humidity")) AS ?humidity)
+    BIND(STR(fun:JSONPath(?sensor, "$.expire")) AS ?expire)
+}
+
+
+#room[*].id
+#room[*].sensor[*].id
+#room[*].sensor[*].category
+#room[*].sensor[*].temperature
+#room[*].sensor[*].humidity
+#room[*].sensor[*].expire

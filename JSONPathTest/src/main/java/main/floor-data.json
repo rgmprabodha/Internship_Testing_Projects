@@ -1,0 +1,45 @@
+[
+  {
+    "label": 0,
+    "offices": [
+      {
+        "id": 0,
+        "label": "string",
+        "floor": 0,
+        "area": 0,
+        "sensors": 0,
+        "geometry": {
+          "type": "string",
+          "projection": "string",
+          "coordinates": [
+            {
+              "type": "string",
+              "projection": "string",
+              "coordinates": {
+                "latitude": 0,
+                "longitude": 0
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "sensorbases": [
+      {
+        "id": 0,
+        "size": 0,
+        "brightness": 0,
+        "humidity": 0,
+        "temperature": 0,
+        "geometry": {
+          "type": "string",
+          "projection": "string",
+          "coordinates": {
+            "latitude": 0,
+            "longitude": 0
+          }
+        }
+      }
+    ]
+  }
+]

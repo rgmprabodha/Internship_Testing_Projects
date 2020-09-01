@@ -1,0 +1,11 @@
+{
+    "?sensor": "room[*].sensor[*]",
+    "?temperature": "room[*].sensor[*].temperature",
+    "?plant": "room[*].plants[*]",
+    "?humidity": "room[*].sensor[*].humidity",
+    "?roomId": "room[*].id",
+    "?sensorId": "room[*].sensor[*].id",
+    "?room": "room[*]",
+    "?category": "room[*].sensor[*].category",
+    "?expire": "room[*].sensor[*].expire"
+}

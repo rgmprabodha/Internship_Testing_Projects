@@ -1,0 +1,48 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "http://example.com/example.json",
+    "type": "array",
+    "title": "The root schema",
+    "description": "The root schema comprises the entire JSON document.",
+    "default": [],
+    "additionalItems": true,
+    "items": {
+        "$id": "#/items",
+        "type": "object",
+        "required": [
+            "id",
+            "firstname",
+            "lastname",
+            "mail",
+            "phone",
+            "institution"
+        ],
+        "additionalProperties": true,
+        "properties": {
+            "id": {
+                "$id": "#/items/properties/id",
+                "type": "integer"
+            },
+            "firstname": {
+                "$id": "#/items/properties/firstname",
+                "type": "string"
+            },
+            "lastname": {
+                "$id": "#/items/properties/lastname",
+                "type": "string"
+            },
+            "mail": {
+                "$id": "#/items/properties/mail",
+                "type": "string"
+            },
+            "phone": {
+                "$id": "#/items/properties/phone",
+                "type": "string"
+            },
+            "institution": {
+                "$id": "#/items/properties/institution",
+                "type": "string"
+            }
+        }            
+    }
+}

@@ -1,0 +1,1 @@
+ResultShapeMap [associations=[ShapeAssociation [nodeSelector=<http://example.com/ns#Sensor1>, shapeSelector=<http://example.com/ns#TemperatureShape>, status=NONCONFORMANT, reason=null, appInfo=null]]]

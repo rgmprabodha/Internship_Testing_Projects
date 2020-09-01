@@ -1,0 +1,96 @@
+{
+    "profile_room[*]_sensor[*]": {
+        "minItems": 2,
+        "path": "room[*].sensor[*]",
+        "maxItems": 5,
+        "type": "array",
+        "constraints": {        	
+        	"minCount": 2,
+        	"maxCount": 5
+        }
+    },
+    "profile_room[*]_sensor[*]_expire": {
+        "path": "room[*].sensor[*].expire",
+        "type": "string",
+        "cardinality": 1,
+        "constraints": { 
+        	"dataType": "String",       	
+        	"minCount": 1,
+        	"maxCount": 1
+        }
+    },
+    "profile_room[*]_sensor[*]_id": {
+        "path": "room[*].sensor[*].id",
+        "type": "string",
+        "cardinality": 1,
+        "constraints": { 
+        	"dataType": "String",       	
+        	"minCount": 1,
+        	"maxCount": 1
+        }
+    },
+    "profile_room[*]_sensor[*]_humidity": {
+        "path": "room[*].sensor[*].humidity",
+        "maximum": 80,
+        "type": "integer",
+        "exclusiveMinimum": 24,
+        "cardinality": 1,
+        "constraints": { 
+        	"dataType": "integer",       	
+        	"maxExclusive": 80,
+        	"minInclusive": 24
+        }
+    },
+    "profile_room[*]_id": {
+        "path": "room[*].id",
+        "type": "string",
+        "cardinality": 1,
+        "constraints": { 
+        	"dataType": "String",       	
+        	"minCount": 1,
+        	"maxCount": 1
+        }
+    },
+    "profile_room[*]_sensor[*]_temperature": {
+        "exclusiveMaximum": 32,
+        "path": "room[*].sensor[*].temperature",
+        "type": "number",
+        "minimum": 16,
+        "cardinality": 1,
+        "constraints": { 
+        	"dataType": "number",       	
+        	"mainCount": 1,
+        	"maxCount": 1
+        }
+    },
+    "profile_room[*]_sensor[*]_category": {
+        "path": "room[*].sensor[*].category",
+        "type": "string",
+        "cardinality": 1,
+        "constraints": { 
+        	"dataType": "String",       	
+        	"mainCount": 1,
+        	"maxCount": 1
+        }
+    },
+    "profile_room[*]": {
+        "minItems": 2,
+        "path": "room[*].",
+        "maxItems": 5,
+        "type": "array",
+        "constraints": {    	
+        	"minCount": 2,
+        	"maxCount": 5
+        }
+    },
+    "profile_room[*]_plants[*]": {
+        "minItems": 2,
+        "path": "room[*].plants[*].",
+        "maxItems": 5,
+        "type": "array",
+        "constraints": {     	
+        	"minCount": 2,
+        	"maxCount": 5
+        }
+    }
+}

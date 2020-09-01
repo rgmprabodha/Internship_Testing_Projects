@@ -1,0 +1,63 @@
+{
+    "http://example/com/sensor": [
+        {
+            "js_var": "?sensorId",
+            "js_profile": "profile_room[*]_sensor[*]_id",
+            "nodeKind": "literal",
+            "js_path": "room[*].sensor[*].id",
+            "sh_path": "http://example/com/id"
+        },
+        {
+            "js_var": "?category",
+            "js_profile": "profile_room[*]_sensor[*]_category",
+            "nodeKind": "literal",
+            "js_path": "room[*].sensor[*].category",
+            "sh_path": "http://example/com/category"
+        },
+        {
+            "js_var": "?temperature",
+            "js_profile": "profile_room[*]_sensor[*]_temperature",
+            "nodeKind": "literal",
+            "js_path": "room[*].sensor[*].temperature",
+            "sh_path": "http://example/com/temperature"
+        },
+        {
+            "js_var": "?humidity",
+            "js_profile": "profile_room[*]_sensor[*]_humidity",
+            "nodeKind": "literal",
+            "js_path": "room[*].sensor[*].humidity",
+            "sh_path": "http://example/com/humidity"
+        },
+        {
+            "js_var": "?expire",
+            "js_profile": "profile_room[*]_sensor[*]_expire",
+            "nodeKind": "literal",
+            "js_path": "room[*].sensor[*].expire",
+            "sh_path": "http://example/com/expire"
+        }
+    ],
+    "http://example/com/room": [
+        {
+            "js_var": "?roomId",
+            "js_profile": "profile_room[*]_id",
+            "nodeKind": "literal",
+            "js_path": "room[*].id",
+            "sh_path": "http://example/com/id"
+        },
+        {
+            "js_var": "?sensorId",
+            "js_profile": "profile_room[*]_sensor[*]_id",
+            "nodeKind": "nonLiteral",
+            "js_path": "room[*].sensor[*].id",
+            "sh_path": "http://example/com/hasSensor",
+            "class": "http://example/com/sensor"
+        },
+        {
+            "js_var": "?plant",
+            "js_profile": "profile_room[*]_plants[*]",
+            "nodeKind": "literal",
+            "js_path": "room[*].plants[*]",
+            "sh_path": "http://example/com/hasPlant"
+        }
+    ]
+}

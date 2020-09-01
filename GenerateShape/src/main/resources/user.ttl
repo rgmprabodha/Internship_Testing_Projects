@@ -1,0 +1,24 @@
+@prefix schema: <http://schema.org/> .
+@prefix ex:    <http://example/com/> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix iter:  <http://w3id.org/sparql-generate/iter/> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ite:   <http://w3id.org/sparql-generate/iter/> .
+@prefix fun:   <http://w3id.org/sparql-generate/fn/> .
+
+<http://loc.emaple.com/users/1>
+        a               ex:user ;
+        ex:firstname    "Dishan" ;
+        ex:id           "1" ;
+        ex:institution  "UCSC" ;
+        ex:lastname     "PG" ;
+        ex:phone        "+33612345678" .
+
+<http://loc.emaple.com/users/0>
+        a               ex:user ;
+        ex:firstname    "Malshani" ;
+        ex:id           "0" ;
+        ex:institution  "EMSE" ;
+        ex:lastname     "RG" ;
+        ex:phone        "+33612345678" .

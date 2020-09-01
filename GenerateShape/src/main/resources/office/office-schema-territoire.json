@@ -1,0 +1,74 @@
+{
+    "type": "object",
+    "properties": {
+       "id": {
+          "type": "integer",
+          "description": "Unique identifiant for office"
+       },
+       "label": {
+          "type": "string",
+          "description": "office number"
+       },
+       "floor": {
+          "type": "integer",
+          "description": "floor of the office in building"
+       },
+       "area": {
+          "type": "number",
+          "description": "Area of the office in building"
+       },
+       "sensors": {
+          "type": "integer",
+          "description": "number of sensors into the office"
+       },
+       "geometry": {
+          "description": "coordinates of office in projection 4326",
+           "type": "object",
+           "properties": {
+              "type": {
+                 "type": "string",
+                 "description": "type of geometry",
+                 "default": "Polygon"
+              },
+              "projection": {
+                 "type": "string",
+                 "description": "coordinate referential",
+                 "default": "EPSG:4326"
+              },
+              "coordinates": {
+                 "type": "array",
+                 "description": "coordinate",
+                 "items": {
+		            "type": "object",
+		            "properties": {
+		               "type": {
+		                  "type": "string",
+		                  "description": "type of geometry",
+		                  "default": "Point"
+		               },
+		               "projection": {
+		                  "type": "string",
+		                  "description": "coordinate referential",
+		                  "default": "EPSG:4326"
+		               },
+		               "coordinates": {
+		                  "type": "object",
+		                  "description": "coordinate",
+		                  "properties": {
+		                     "latitude": {
+		                        "type": "number",
+		                        "description": "latitude"
+		                     },
+		                     "longitude": {
+		                        "type": "number",
+		                        "description": "longitude"
+		                     }
+		                  }
+		               }
+		            }
+		         }
+              }
+          }
+       }
+    }
+  }

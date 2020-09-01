@@ -1,0 +1,33 @@
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ite: <http://w3id.org/sparql-generate/iter/>
+PREFIX fun: <http://w3id.org/sparql-generate/fn/>
+PREFIX schema: <http://schema.org/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX iter: <http://w3id.org/sparql-generate/iter/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/> 
+
+GENERATE { 
+
+	<http://loc.emaple.com/users/{?userId}> a foaf:User;
+		foaf:id ?userId ;
+		foaf:firstname ?firstname;
+		foaf:lastname ?lastname;
+		foaf:email ?email;
+		foaf:phone ?phone;
+		foaf:institution ?institution .
+}
+
+SOURCE <https://saint-etienne-gbfs.klervi.net/gbfs/en/station_information.json> AS ?source
+
+WHERE {
+	BIND(STR(fun:JSONPath(?source, "$.id")) AS ?userId)
+    BIND(STR(fun:JSONPath(?source, "$.firstname")) AS ?firstname)
+    BIND(STR(fun:JSONPath(?source,"$.lastname")) AS ?lastname)
+    BIND(STR(fun:JSONPath(?source,"$.mail")) AS ?email)
+    BIND(STR(fun:JSONPath(?source,"$.phone")) AS ?phone)
+    BIND(STR(fun:JSONPath(?source, "$.institution")) AS ?institution)
+}
+
+#use foaf for user

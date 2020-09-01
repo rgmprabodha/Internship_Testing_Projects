@@ -1,0 +1,15 @@
+{
+    "id": 0,
+    "size": 10,
+    "brightness": 15,
+    "humidity":14,
+    "temperature": 20,
+    "geometry": {
+      "type": "string",
+      "projection": "string",
+      "coordinates": {
+        "latitude": 0,
+        "longitude": 0
+      }
+    }
+  }

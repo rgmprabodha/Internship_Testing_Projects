@@ -1,0 +1,42 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "http://example.com/example.json",
+    "type": "object",
+    "required": [
+        "id",
+        "firstname",
+        "lastname",
+        "mail",
+        "phone",
+        "institution"
+    ],
+    "properties": {
+        "id": {
+            "$id": "#/properties/id",
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 20
+        },
+        "firstname": {
+            "$id": "#/properties/firstname",
+            "type": "string"
+        },
+        "lastname": {
+            "$id": "#/properties/lastname",
+            "type": "string"
+        },
+        "mail": {
+            "$id": "#/properties/mail",
+            "type": "string"
+        },
+        "phone": {
+            "$id": "#/properties/phone",
+            "type": "string"
+        },
+        "institution": {
+            "$id": "#/properties/institution",
+            "type": "string"
+        }
+    },
+    "additionalProperties": false
+}

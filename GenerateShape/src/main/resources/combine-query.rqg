@@ -1,0 +1,30 @@
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ite: <http://w3id.org/sparql-generate/iter/>
+PREFIX fun: <http://w3id.org/sparql-generate/fn/>
+PREFIX schema: <http://schema.org/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX iter: <http://w3id.org/sparql-generate/iter/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX ex: <http://example/com/>
+
+GENERATE { 
+
+	<http://loc.emaple.com/children/{?name}> a ex:Child;
+		ex:name ?name ;
+		ex:otherProperty ?op;
+		ex:otherProperty1 ?op2;
+		ex:otherProperty2 ?op3 .
+
+}
+
+SOURCE <https://saint-etienne-gbfs.klervi.net/gbfs/en/station_information.json> AS ?source
+
+ITERATOR iter:JSONPath(?source, "$.children[*]") AS ?child
+
+WHERE {
+	BIND(STR(fun:JSONPath(?child, "name")) AS ?name)
+    BIND(STR(fun:JSONPath(?child, "otherProperty")) AS ?op)
+    BIND(STR(fun:JSONPath(?child, "otherProperty2")) AS ?op2)
+    BIND(STR(fun:JSONPath(?child, "otherProperty3")) AS ?op3)
+}

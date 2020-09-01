@@ -1,0 +1,133 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema",
+	"$id": "https://territoire.emse.fr/applications/api-docs#/IoT/floor.json",
+	"type": "object",
+	"properties": {
+		"label": {
+			"type": "integer",
+			"maximum": 5
+		},
+		"offices": {
+			"type": "array",
+			"maxItems": 10,
+			"minItems": 1,
+			"items": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer",
+						"exclusiveMaximum": 5
+					},
+					"label": {
+						"type": "string"
+					},
+					"floor": {
+						"type": "integer"
+					},
+					"area": {
+						"type": "number",
+						"exclusiveMinimum": 10
+					},
+					"sensors": {
+						"type": "integer",
+						"minimum": 1
+					},
+					"geometry": {
+						"type": "object",
+						"properties": {
+							"type": {
+								"type": "string"
+							},
+							"projection": {
+								"type": "string"
+							},
+							"coordinates": {
+								"type": "array",
+								"items": {
+									"type": "object",
+									"properties": {
+										"id": {
+											"type": "string"
+										},
+										"type": {
+											"type": "string"
+										},
+										"projection": {
+											"type": "string"
+										},
+										"coordinates": {
+											"type": "object",
+											"properties": {
+												"latitude": {
+													"type": "number",
+													"minimum": 0
+												},
+												"longitude": {
+													"type": "number",
+													"minimum": 0
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"sensorbases": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"title": "The first anyOf schema",
+				"properties": {
+					"id": {
+						"type": "integer",
+						"minimum": 0
+					},
+					"size": {
+						"type": "integer",
+						"minimum": 0
+					},
+					"brightness": {
+						"type": "integer",
+						"minimum": 0
+					},
+					"humidity": {
+						"type": "integer",
+						"minimum": 0
+					},
+					"temperature": {
+						"type": "integer",
+						"minimum": 0
+					},
+					"geometry": {
+						"type": "object",
+						"properties": {
+							"type": {
+								"type": "string"
+							},
+							"projection": {
+								"type": "string"
+							},
+							"coordinates": {
+								"type": "object",
+								"properties": {
+									"latitude": {
+										"type": "integer",
+										"minimum": 0
+									},
+									"longitude": {
+										"type": "integer",
+										"minimum": 0
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,27 @@
+{
+  "@context": "http://www.w3.org/ns/shex.jsonld",
+  "type": "Schema",
+  "shapes": [
+  		{
+	      "id": "http://example.com/ns#TemperatureShape",
+	      "type": "Shape",      
+	       "expression": {
+	            "type": "EachOf",
+	            "expressions": [
+	              { "type":      "TripleConstraint",
+	                "predicate": "http://example.com/ns#temperature",
+	                "valueExpr": { "type": "NodeConstraint", 
+	                			   "datatype": "http://www.w3.org/2001/XMLSchema#decimal"
+	                }
+	              },
+	              { "type":      "TripleConstraint",
+	                "predicate": "http://example.com/ns#humadity",                
+	                "valueExpr": { "type": "NodeConstraint", 
+	                			   "datatype": "http://www.w3.org/2001/XMLSchema#decimal"
+	                }
+	              }
+	            ]
+	          }      
+	    }
+  ]
+}

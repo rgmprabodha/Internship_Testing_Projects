@@ -1,0 +1,50 @@
+@prefix schema: <http://schema.org/> .
+@prefix ex:    <http://example/com/> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix iter:  <http://w3id.org/sparql-generate/iter/> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ite:   <http://w3id.org/sparql-generate/iter/> .
+@prefix fun:   <http://w3id.org/sparql-generate/fn/> .
+
+<http://loc.emaple.com/room/X2>
+        a             ex:room ;
+        ex:hasPlant   "daisy" , "hibiscus" ;
+        ex:hasSensor  <http://loc.example.com/room/sensor/004> , <http://loc.example.com/room/sensor/003> ;
+        ex:id         "X2" .
+
+<http://loc.example.com/room/sensor/003>
+        a               ex:sensor ;
+        ex:category     "abc" ;
+        ex:expire       "2024/02/28" ;
+        ex:humidity     "60" ;
+        ex:id           "003" ;
+        ex:temperature  "22.3e0" .
+
+<http://loc.example.com/room/sensor/001>
+        a               ex:sensor ;
+        ex:category     "abc" ;
+        ex:expire       "2024/02/28" ;
+        ex:humidity     "60" ;
+        ex:id           "001" ;
+        ex:temperature  "23" .
+
+<http://loc.example.com/room/sensor/004>
+        a               ex:sensor ;
+        ex:category     "abc" ;
+        ex:humidity     "67" ;
+        ex:id           "004" ;
+        ex:temperature  "22.4e0" .
+
+<http://loc.emaple.com/room/X1>
+        a             ex:room ;
+        ex:hasPlant   "orchid" , "plumeria" , "rose" , "jasmine" ;
+        ex:hasSensor  <http://loc.example.com/room/sensor/002> , <http://loc.example.com/room/sensor/001> ;
+        ex:id         "X1" .
+
+<http://loc.example.com/room/sensor/002>
+        a               ex:sensor ;
+        ex:category     "abc" ;
+        ex:humidity     "67" ;
+        ex:id           "002" ;
+        ex:temperature  "22" .

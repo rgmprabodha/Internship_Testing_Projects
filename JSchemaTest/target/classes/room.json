@@ -1,0 +1,18 @@
+{
+    "room": {
+        "sensor": [{
+                "id": "001",
+                "category": "abc",
+                "temperature": 33.9,
+                "humadity": 60,
+                "expire": "2024/02/28"
+            },
+            {
+                "id": "002",
+                "category": "abc",
+                "temperature": 34.7,
+                "humadity": 67
+            }
+        ]
+    }
+}

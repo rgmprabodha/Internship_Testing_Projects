@@ -1,0 +1,43 @@
+@prefix ex:    <http://example.com/ns#> .
+@prefix sh:    <http://www.w3.org/ns/shacl#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+
+[ a            sh:ValidationReport ;
+  sh:conforms  false ;
+  sh:result    [ a                             sh:ValidationResult ;
+                 sh:focusNode                  ex:Lamp1 ;
+                 sh:resultMessage              "DatatypeConstraint[xsd:String] : Got datatype http://www.w3.org/2001/XMLSchema#string : Node \"ON\"" ;
+                 sh:resultPath                 ex:status ;
+                 sh:resultSeverity             sh:Violation ;
+                 sh:sourceConstraintComponent  sh:DatatypeConstraintComponent ;
+                 sh:sourceShape                []  ;
+                 sh:value                      "ON"
+               ] ;
+  sh:result    [ a                             sh:ValidationResult ;
+                 sh:focusNode                  ex:Sensor2 ;
+                 sh:resultMessage              "minCount[1]: Invalid cardinality: expected min 1: Got count = 0" ;
+                 sh:resultPath                 ex:humadity ;
+                 sh:resultSeverity             sh:Violation ;
+                 sh:sourceConstraintComponent  sh:MinCountConstraintComponent ;
+                 sh:sourceShape                [] 
+               ] ;
+  sh:result    [ a                             sh:ValidationResult ;
+                 sh:focusNode                  ex:Sensor1 ;
+                 sh:resultMessage              "maxCount[1]: Invalid cardinality: expected max 1: Got count = 2" ;
+                 sh:resultPath                 ex:temperature ;
+                 sh:resultSeverity             sh:Violation ;
+                 sh:sourceConstraintComponent  sh:MaxCountConstraintComponent ;
+                 sh:sourceShape                [] 
+               ] ;
+  sh:result    [ a                             sh:ValidationResult ;
+                 sh:focusNode                  ex:Sensor1 ;
+                 sh:resultMessage              "Closed[http://example.com/ns#humadity, http://example.com/ns#temperature][http://www.w3.org/1999/02/22-rdf-syntax-ns#type] Property = <http://example.com/ns#hello> : Object = 88" ;
+                 sh:resultPath                 ex:hello ;
+                 sh:resultSeverity             sh:Violation ;
+                 sh:sourceConstraintComponent  sh:ClosedConstraintComponent ;
+                 sh:sourceShape                ex:TemperatureShape ;
+                 sh:value                      88
+               ]
+] .

@@ -1,0 +1,16 @@
+{
+    "station_id": "string",
+    "pressure": 4,
+    "temperature": 0,
+    "pm10": 0,
+    "pm25": 0,
+    "geometry": {
+      "type": "string",
+      "projection": "string",
+      "coordinates": {
+        "latitude": 0,
+        "longitude": 0
+      }
+    },
+    "time": "2018-11-13T20:20:39+00:00"
+}

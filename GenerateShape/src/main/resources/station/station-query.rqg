@@ -1,0 +1,32 @@
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ite: <http://w3id.org/sparql-generate/iter/>
+PREFIX fun: <http://w3id.org/sparql-generate/fn/>
+PREFIX schema: <http://schema.org/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX iter: <http://w3id.org/sparql-generate/iter/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX ex: <http://example/com/>
+PREFIX sosa: <https://www.w3.org/ns/sosa/>
+PREFIX geo: <https://www.w3.org/2003/01/geo/wgs84_pos#>
+
+GENERATE { 
+
+	<http://www.w3.org/ns/sosa/station/{?id}> a sosa:Station;
+		rdf:id ?id ;
+		sosa:geometryType ?geometryType; 
+		sosa:geometryProjection ?geometryProjection; 
+		geo:lat ?lati; 
+		geo:long ?longi .
+}
+
+SOURCE <https://saint-etienne-gbfs.klervi.net/gbfs/en/station_information.json> AS ?source
+
+WHERE {
+	BIND(STR(fun:JSONPath(?source, "$.station_id")) AS ?id)
+    BIND(STR(fun:JSONPath(?source, "$.geometry.type")) AS ?geometryType)
+    BIND(STR(fun:JSONPath(?source, "$.geometry.projection")) AS ?geometryProjection)
+    BIND(STR(fun:JSONPath(?source, "$.geometry.coordinates.latitude")) AS ?lati)
+    BIND(STR(fun:JSONPath(?source, "$.geometry.coordinates.longitude")) AS ?longi)
+
+}

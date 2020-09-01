@@ -1,0 +1,7 @@
+{
+    "?op": "children[*].otherProperty",
+    "?name": "children[*].name",
+    "?child": "children[*]",
+    "?op2": "children[*].otherProperty2",
+    "?op3": "children[*].otherProperty3"
+}

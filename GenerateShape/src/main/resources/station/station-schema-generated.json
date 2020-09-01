@@ -1,0 +1,59 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "http://example.com/example.json",
+    "type": "object",
+    "title": "The root schema",
+    "description": "The root schema comprises the entire JSON document.",
+    "required": [
+        "station_id",
+        "geometry"
+    ],
+    "properties": {
+        "station_id": {
+            "$id": "#/properties/station_id",
+            "type": "string"
+        },
+        "geometry": {
+            "$id": "#/properties/geometry",
+            "type": "object",
+            "required": [
+                "type",
+                "projection",
+                "coordinates"
+            ],
+            "properties": {
+                "type": {
+                    "$id": "#/properties/geometry/properties/type",
+                    "type": "string"
+                },
+                "projection": {
+                    "$id": "#/properties/geometry/properties/projection",
+                    "type": "string"
+                },
+                "coordinates": {
+                    "$id": "#/properties/geometry/properties/coordinates",
+                    "type": "object",
+                    "required": [
+                        "latitude",
+                        "longitude"
+                    ],
+                    "properties": {
+                        "latitude": {
+                            "$id": "#/properties/geometry/properties/coordinates/properties/latitude",
+                            "type": "number",
+                            "maximum": 20
+                        },
+                        "longitude": {
+                            "$id": "#/properties/geometry/properties/coordinates/properties/longitude",
+                            "type": "number",
+                            "maximum": 30
+                        }
+                    },
+                    "additionalProperties": false
+                }
+            },
+            "additionalProperties": false
+        }
+    },
+    "additionalProperties": false
+}

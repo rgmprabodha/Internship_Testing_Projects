@@ -1,0 +1,51 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema",
+	"$id": "http://example.com/room.json",
+	"type": "object",
+	"required": [
+		"room"
+	],
+	"additionalProperties": false,
+	"properties": {
+		"room": {
+			"$id": "#/properties/room",
+			"type": "array",
+			"minItems": 2,
+			"maxItems": 5,
+			"additionalItems": false,
+			"items": {
+				"$id": "#/properties/room/items",
+				"type": "object",
+				"required": [
+					"id",
+					"plants",
+					"alarm"
+				],
+				"additionalProperties": false,
+				"properties": {
+					"id": {
+						"$id": "#/properties/room/items/properties/id",
+						"type": "string"
+					},
+					"plants": {
+						"$id": "#/properties/room/items/anyOf/0/properties/plants",
+						"type": "array",
+						"minItems": 2,
+						"maxItems": 5,
+						"additionalItems": false,
+						"items": {
+							"$id": "#/properties/room/items/anyOf/0/properties/plants/items",
+							"type": "string",
+					        "enum": ["one", "two", "three"]
+						}
+					},
+					"alarm": {
+						"$id": "#/properties/room/items/anyOf/0/properties/alarm",
+						"type": "string",
+						"enum": ["four", "five"]					
+					}
+				}
+			}
+		}
+	}
+}

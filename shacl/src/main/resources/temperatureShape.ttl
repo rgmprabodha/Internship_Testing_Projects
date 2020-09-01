@@ -1,0 +1,42 @@
+@prefix ex: <http://example.com/ns#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:TemperatureShape
+  a sh:NodeShape ;
+  sh:targetClass ex:Sensor ;   
+  sh:targetNode ex:Sensor2 ;
+  sh:property [                 # _:b1
+    sh:path ex:temperature ;           
+    sh:maxCount 1 ;
+    sh:datatype xsd:decimal ;
+  ] ;
+  sh:property [                 # _:b2
+    sh:path ex:humadity ;         
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:datatype xsd:decimal ;
+  ] ;
+  sh:closed true ;
+  sh:ignoredProperties ( rdf:type ) .
+  
+  
+ex:LampShape
+  a sh:NodeShape ;
+  sh:targetClass ex:Lamp ;   
+  sh:property [               
+    sh:path ex:id ;       
+	sh:name "company generated id of the lamp" ;
+	sh:description "The id including numbers and characters" ;    
+    sh:maxCount 1 ;        
+    sh:minCount 1 ;
+  ] ;
+  sh:property [                
+    sh:path ex:status ;         
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:datatype xsd:String ;
+  ] ;
+  sh:closed true ;
+  sh:ignoredProperties ( rdf:type ) .

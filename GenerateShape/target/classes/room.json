@@ -1,0 +1,42 @@
+{
+    "room": [
+	    {
+	    	"id": "X1",
+	    	"plants": ["jasmine", "rose", "plumeria", "orchid"],
+	    	"alarm": "five",
+	        "sensor": [{
+	                "id": "001",
+	                "category": "abc",
+	                "temperature": 23,
+	                "humidity": 60,
+	                "expire": "2024/02/28"
+	            },
+	            {
+	                "id": "002",
+	                "category": "abc",
+	                "temperature": 22,
+	                "humidity": 67
+	            }
+	        ]
+	    },
+	    {
+	    	"id": "X2",
+	    	"plants": ["hibiscus", "daisy"],
+	    	"alarm": "five",
+	        "sensor": [{
+	                "id": "003",
+	                "category": "abc",
+	                "temperature": 22.3,
+	                "humidity": 60,
+	                "expire": "2024/02/28"
+	            },
+	            {
+	                "id": "004",
+	                "category": "abc",
+	                "temperature": 22.4,
+	                "humidity": 67
+	            }
+	        ]
+	    }
+	]
+}

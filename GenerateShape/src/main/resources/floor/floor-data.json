@@ -1,0 +1,62 @@
+{
+	"label": 3,
+	"offices": [
+		{
+			"id": 0,
+			"label": "string",
+			"floor": 0,
+			"area": 40,
+			"sensors": 10,
+			"geometry": {
+				"type": "Polygon",
+				"projection": "string",
+				"coordinates": [
+					{
+						"id": "001",
+						"type": "string",
+						"projection": "string",
+						"coordinates": {
+							"latitude": 0,
+							"longitude": 0
+						}
+					},
+					{
+						"id": "002",
+						"type": "string",
+						"projection": "string",
+						"coordinates": {
+							"latitude": 1,
+							"longitude": 4
+						}
+					},
+					{
+						"id": "003",
+						"type": "string",
+						"projection": "string",
+						"coordinates": {
+							"latitude": 5,
+							"longitude": 0
+						}
+					}
+				]
+			}
+		}
+	],
+	"sensorbases": [
+		{
+			"id": 0,
+			"size": 0,
+			"brightness": 0,
+			"humidity": 0,
+			"temperature": 0,
+			"geometry": {
+				"type": "Point",
+				"projection": "string",
+				"coordinates": {
+					"latitude": 0,
+					"longitude": 0
+				}
+			}
+		}
+	]
+}

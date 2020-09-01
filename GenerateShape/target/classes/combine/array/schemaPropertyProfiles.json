@@ -1,0 +1,38 @@
+{
+    "profile_children[*]__anyOf_2__name": {
+        "any_of": "_anyOf_2_",
+        "literal_data_type": "string",
+        "js_path": "children[*]._anyOf_2_.name",
+        "value_node_kind": "literal",
+        "literal_enum": ["boo"]
+    },
+    "profile_children[*]__anyOf_1__otherProperty": {
+        "any_of": "_anyOf_1_",
+        "literal_data_type": "string",
+        "js_path": "children[*]._anyOf_1_.otherProperty",
+        "value_node_kind": "literal"
+    },
+    "profile_children[*]__anyOf_2__otherProperty2": {
+        "any_of": "_anyOf_2_",
+        "literal_data_type": "string",
+        "js_path": "children[*]._anyOf_2_.otherProperty2",
+        "value_node_kind": "literal"
+    },
+    "profile_children[*]__anyOf_2__otherProperty3": {
+        "any_of": "_anyOf_2_",
+        "literal_data_type": "string",
+        "js_path": "children[*]._anyOf_2_.otherProperty3",
+        "value_node_kind": "literal"
+    },
+    "profile_children[*]__anyOf_1__name": {
+        "any_of": "_anyOf_1_",
+        "literal_data_type": "string",
+        "js_path": "children[*]._anyOf_1_.name",
+        "value_node_kind": "literal",
+        "literal_enum": ["foo"]
+    },
+    "profile_children[*]": {
+        "js_path": "children[*].",
+        "value_node_kind": "non_literal"
+    }
+}

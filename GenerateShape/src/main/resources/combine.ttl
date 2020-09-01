@@ -1,0 +1,18 @@
+@prefix schema: <http://schema.org/> .
+@prefix ex:    <http://example/com/> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix iter:  <http://w3id.org/sparql-generate/iter/> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ite:   <http://w3id.org/sparql-generate/iter/> .
+@prefix fun:   <http://w3id.org/sparql-generate/fn/> .
+
+<http://loc.emaple.com/children/boo>
+        a                  ex:Child ;
+        ex:name            "boo" ;
+        ex:otherProperty2  "baz" .
+
+<http://loc.emaple.com/children/foo>
+        a                 ex:Child ;
+        ex:name           "foo" ;
+        ex:otherProperty  "bar" .

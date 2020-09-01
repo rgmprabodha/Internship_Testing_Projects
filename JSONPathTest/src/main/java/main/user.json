@@ -1,0 +1,16 @@
+[{
+    "id": 0,
+    "firstname": "Malshani",
+    "lastname": "RG",
+    "mail": "malshani@rg.com",
+    "phone": "+33612345678",
+    "institution": "EMSE"
+},
+{
+    "id": 1,
+    "firstname": "Dishan",
+    "lastname": "PG",
+    "mail": "dishan@pg.com",
+    "phone": "+33612345678",
+    "institution": "UCSC"
+}]

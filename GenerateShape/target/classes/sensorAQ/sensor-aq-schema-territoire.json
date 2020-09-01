@@ -1,0 +1,63 @@
+{
+    "type": "object",
+    "required": [
+       "station_id"
+    ],
+    "properties": {
+       "station_id": {
+          "type": "string",
+          "description": "Unique identifiant for station (uuid or mac address)"
+       },
+       "pressure": {
+          "type": "number",
+          "description": "pressure value"
+       },
+       "temperature": {
+          "type": "number",
+          "description": "temperature value"
+       },
+       "pm10": {
+          "type": "number",
+          "description": "pm10 value"
+       },
+       "pm25": {
+          "type": "number",
+          "description": "pm25 value"
+       },
+       "geometry": {
+          "type": "object",
+          "description": "coordinates of sensor in projection 4326",                 
+   		  "properties": {
+               "type": {
+                  "type": "string",
+                  "description": "type of geometry",
+                  "default": "Point"
+               },
+               "projection": {
+                  "type": "string",
+                  "description": "coordinate referential",
+                  "default": "EPSG:4326"
+               },
+               "coordinates": {
+                  "type": "object",
+                  "description": "coordinate",
+                  "properties": {
+                     "latitude": {
+                        "type": "number",
+                        "description": "latitude"
+                     },
+                     "longitude": {
+                        "type": "number",
+                        "description": "longitude"
+                     }
+                  }
+               }
+            }
+       	},
+       "time": {
+          "type": "string",
+          "format":"date-time",
+          "description": "Capture time"
+       }
+    }
+}

@@ -1,0 +1,58 @@
+# Result for pattern {a [__] ; ~ __} and query SELECT ?x WHERE {?x a ex:sensor. }
+PREFIX shgen: <http://generated-shacl.io/> 
+@prefix ex: <http://example.com/ns#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+shgen:categorysensorShapeProperty sh:datatype xsd:string;
+  sh:maxCount 1;
+  sh:minCount 1;
+  sh:path ex:category .
+
+shgen:expiresensorShapeProperty sh:datatype xsd:string;
+  sh:maxCount 1;
+  sh:minCount 0;
+  sh:path ex:expire .
+
+shgen:humiditysensorShapeProperty sh:datatype xsd:string;
+  sh:maxCount 1;
+  sh:minCount 1;
+  sh:path ex:humidity .
+
+shgen:idsensorShapeProperty sh:datatype xsd:string;
+  sh:maxCount 1;
+  sh:minCount 1;
+  sh:path ex:id .
+
+shgen:sensorShape a sh:NodeShape;
+  sh:property shgen:categorysensorShapeProperty, shgen:expiresensorShapeProperty, shgen:humiditysensorShapeProperty,
+    shgen:idsensorShapeProperty, shgen:temperaturesensorShapeProperty;
+  sh:targetClass ex:sensor .
+
+shgen:temperaturesensorShapeProperty sh:datatype xsd:string;
+  sh:maxCount 1;
+  sh:minCount 1;
+  sh:path ex:temperature .
+
+
+# Result for pattern {a [__] ; ~ __} and query SELECT ?x WHERE {?x a ex:room. }
+
+shgen:hasPlantroomShapeProperty sh:datatype xsd:string;
+  sh:minCount 1;
+  sh:path ex:hasPlant .
+
+shgen:hasSensorroomShapeProperty sh:NodeKind sh:IRI;
+  sh:minCount 1;
+  sh:path ex:hasSensor .
+
+shgen:idroomShapeProperty sh:datatype xsd:string;
+  sh:maxCount 1;
+  sh:minCount 1;
+  sh:path ex:id .
+
+shgen:roomShape a sh:NodeShape;
+  sh:property shgen:hasPlantroomShapeProperty, shgen:hasSensorroomShapeProperty, shgen:idroomShapeProperty;
+  sh:targetClass ex:room .
+
+

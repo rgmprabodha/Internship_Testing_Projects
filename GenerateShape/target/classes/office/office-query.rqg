@@ -1,0 +1,50 @@
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ite: <http://w3id.org/sparql-generate/iter/>
+PREFIX fun: <http://w3id.org/sparql-generate/fn/>
+PREFIX schema: <http://schema.org/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX iter: <http://w3id.org/sparql-generate/iter/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX ex: <http://example/com/>
+PREFIX sosa: <https://www.w3.org/ns/sosa/>
+PREFIX geo: <https://www.w3.org/2003/01/geo/wgs84_pos#>
+
+GENERATE { 
+
+	<http://example.com/floors/offices/{?officeId}> a sosa:Office;
+		rdf:ID ?officeId; 
+		rdfs:label ?officeLabel; 
+		ex:floor ?officeFloor; 
+		ex:area ?officeArea; 
+		ex:sensore ?officeSensors;
+		ex:geometryType ?officeGeoMetryType; 
+		ex:geometryProjection ?officeGeoMetryProjection;
+		ex:hasCoordinates <http://example.com/floors/offices/coordinates{?officeGeoMetryCoordinatesType}>. # edit {}
+
+	<http://example.com/floors/offices/coordinates{?officeGeoMetryCoordinatesType}> a sosa:OficeCoordinate; # edit {}
+		ex:coordinatesType ?officeGeoMetryCoordinatesType; 
+		ex:coordinatesProjection ?officeGeoMetryCoordinatesProjection ;
+		geo:lat ?officeGeoMetryCoordinatesLat;
+		geo:long ?officeGeoMetryCoordinatesLong.
+
+}
+
+SOURCE <https://saint-etienne-gbfs.klervi.net/gbfs/en/station_information.json> AS ?source
+ 
+ITERATOR iter:JSONPath(?source, "$.geometry.coordinates[*]") AS ?officeCoordinates
+
+WHERE {
+    BIND(STR(fun:JSONPath(?source , "$.id")) AS ?officeId)
+    BIND(STR(fun:JSONPath(?source , "$.label")) AS ?officeLabel)
+    BIND(STR(fun:JSONPath(?source , "$.floor")) AS ?officeFloor)
+    BIND(STR(fun:JSONPath(?source , "$.area")) AS ?officeArea)
+    BIND(STR(fun:JSONPath(?source , "$.sensors")) AS ?officeSensors)
+    BIND(STR(fun:JSONPath(?source , "$.geometry.type")) AS ?officeGeoMetryType)
+    BIND(STR(fun:JSONPath(?source , "$.geometry.projection")) AS ?officeGeoMetryProjection)
+    BIND(STR(fun:JSONPath(?officeCoordinates , "$.type")) AS ?officeGeoMetryCoordinatesType)
+    BIND(STR(fun:JSONPath(?officeCoordinates , "$.projection")) AS ?officeGeoMetryCoordinatesProjection)
+    BIND(STR(fun:JSONPath(?officeCoordinates , "$.coordinates.latitude")) AS ?officeGeoMetryCoordinatesLat)
+    BIND(STR(fun:JSONPath(?officeCoordinates , "$.coordinates.longitude")) AS ?officeGeoMetryCoordinatesLong)
+
+}

@@ -1,0 +1,38 @@
+{ "room": {
+	"id": "X75",
+    "sensor": [ 
+        {"id":"001",
+         "category": "abc",
+         "temperature": "33",
+         "humadity": "60",
+         "expire" : "2024"
+        },
+        {"id":"002",
+         "category": "abc",
+         "temperature": "34",
+         "humadity": "67"
+        },
+        {"id":"003",
+         "category": "def",
+         "temperature": "35",
+         "humadity": "66",
+         "expire" : "2025"
+        },
+        {"id":"004",
+         "category": "def",
+         "temperature": "36",
+         "humadity": "45"
+       }
+    ],
+    "light": [
+    	{ "id": "L001",
+	      "color": "red",
+	      "price": 19.95
+    	},
+    	{ "id": "L002",
+	      "color": "blue",
+	      "price": 19.95
+	    }
+    ]
+  }
+}

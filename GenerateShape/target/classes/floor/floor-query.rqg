@@ -1,0 +1,77 @@
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX fun: <http://w3id.org/sparql-generate/fn/>
+PREFIX schema: <http://schema.org/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX iter: <http://w3id.org/sparql-generate/iter/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX sosa: <https://www.w3.org/ns/sosa/>
+PREFIX geo: <https://www.w3.org/2003/01/geo/wgs84_pos#>
+
+GENERATE { 
+
+	<https://www.w3.org/ns/sosa/floors/{?floorLabel}> a sosa:Floor;
+		rdfs:label ?floorLabel ;
+		sosa:hasSensorBase <https://www.w3.org/ns/sosa/floor/sensorbases/{?sensorbasesId}>;
+		sosa:hasOffice <https://www.w3.org/ns/sosa/floor/offices/{?officeId}> .
+
+	<https://www.w3.org/ns/sosa/floors/sensorbases/{?sensorbasesId}> a sosa:SensorBase;
+		rdf:ID ?sensorbasesId; 
+		sosa:sensorbasesSize ?sensorbasesSize; 
+		sosa:sensorbasesBrightness ?sensorbasesBrightness; 
+		sosa:sensorbasesHumadity ?sensorbasesHumidity; 
+		sosa:sensorbasesTemperature ?sensorbasesTemperature;
+		sosa:sensorbasesGT ?sensorbasesGeometryType; 
+		sosa:sensorbasesGP ?sensorbasesGeometryProjection; 
+		geo:lat ?sensorbasesLat; 
+		geo:long ?sensorbasesLongi .
+
+	<https://www.w3.org/ns/sosa/floors/offices/{?officeId}> a sosa:Office;
+		rdf:ID ?officeId; 
+		rdfs:label ?officeLabel; 
+		sosa:floor ?officeFloor; 
+		sosa:area ?officeArea; 
+		sosa:sensore ?officeSensors;
+		sosa:geometryType ?officeGeoMetryType; 
+		sosa:geometryProjection ?officeGeoMetryProjection;
+		sosa:hasCoordinates <https://www.w3.org/ns/sosa/floors/offices/coordinates{?officeGeoMetryCoordinatesId}>. 
+
+	<https://www.w3.org/ns/sosa/floors/offices/coordinates{?officeGeoMetryCoordinatesId}> a sosa:OficeCoordinate; 
+		sosa:coordinatesType ?officeGeoMetryCoordinatesType; 
+		sosa:coordinatesProjection ?officeGeoMetryCoordinatesProjection ;
+		geo:lat ?officeGeoMetryCoordinatesLat;
+		geo:long ?officeGeoMetryCoordinatesLong.
+
+}
+
+SOURCE <https://saint-etienne-gbfs.klervi.net/gbfs/en/station_information.json> AS ?source
+
+ITERATOR iter:JSONPath(?source, "$.offices[*]") AS ?office  
+ITERATOR iter:JSONPath(?source, "$.offices[*].geometry.coordinates[*]") AS ?officeCoordinates
+ITERATOR iter:JSONPath(?source, "$.sensorbases[*]") AS ?sensorbase  
+
+WHERE {
+	BIND(STR(fun:JSONPath(?source, "$.label")) AS ?floorLabel)
+    BIND(STR(fun:JSONPath(?sensorbase, "$.id")) AS ?sensorbasesId)
+    BIND(STR(fun:JSONPath(?sensorbase, "$.size")) AS ?sensorbasesSize)
+    BIND(STR(fun:JSONPath(?sensorbase, "$.brightness")) AS ?sensorbasesBrightness)
+    BIND(STR(fun:JSONPath(?sensorbase, "$.humidity")) AS ?sensorbasesHumidity)
+    BIND(STR(fun:JSONPath(?sensorbase, "$.temperature")) AS ?sensorbasesTemperature)
+    BIND(STR(fun:JSONPath(?sensorbase, "$.geometry.type")) AS ?sensorbasesGeometryType)
+    BIND(STR(fun:JSONPath(?sensorbase, "$.geometry.projection")) AS ?sensorbasesGeometryProjection)
+    BIND(STR(fun:JSONPath(?sensorbase, "$.geometry.coordinates.latitude")) AS ?sensorbasesLat)
+    BIND(STR(fun:JSONPath(?sensorbase, "$.geometry.coordinates.longitude")) AS ?sensorbasesLongi)
+    BIND(STR(fun:JSONPath(?office , "$.id")) AS ?officeId)
+    BIND(STR(fun:JSONPath(?office , "$.label")) AS ?officeLabel)
+    BIND(STR(fun:JSONPath(?office , "$.floor")) AS ?officeFloor)
+    BIND(STR(fun:JSONPath(?office , "$.area")) AS ?officeArea)
+    BIND(STR(fun:JSONPath(?office , "$.sensors")) AS ?officeSensors)
+    BIND(STR(fun:JSONPath(?office , "$.geometry.type")) AS ?officeGeoMetryType)
+    BIND(STR(fun:JSONPath(?office , "$.geometry.projection")) AS ?officeGeoMetryProjection)
+    BIND(STR(fun:JSONPath(?officeCoordinates , "$.id")) AS ?officeGeoMetryCoordinatesId)
+    BIND(STR(fun:JSONPath(?officeCoordinates , "$.type")) AS ?officeGeoMetryCoordinatesType)
+    BIND(STR(fun:JSONPath(?officeCoordinates , "$.projection")) AS ?officeGeoMetryCoordinatesProjection)
+    BIND(STR(fun:JSONPath(?officeCoordinates , "$.coordinates.latitude")) AS ?officeGeoMetryCoordinatesLat)
+    BIND(STR(fun:JSONPath(?officeCoordinates , "$.coordinates.longitude")) AS ?officeGeoMetryCoordinatesLong)
+
+}

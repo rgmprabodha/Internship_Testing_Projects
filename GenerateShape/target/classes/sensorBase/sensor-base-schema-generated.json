@@ -1,0 +1,63 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "http://example.com/example.json",
+    "type": "object",
+    "properties": {
+        "id": {
+            "$id": "#/properties/id",
+            "type": "integer",
+            "exclusiveMaximum": 10
+        },
+        "size": {
+            "$id": "#/properties/size",
+            "type": "integer",
+            "minimum": 2
+        },
+        "brightness": {
+            "$id": "#/properties/brightness",
+            "type": "integer",
+            "minimum": 13,
+            "exclusiveMaximum": 20
+        },
+        "humidity": {
+            "$id": "#/properties/humidity",
+            "type": "integer",
+            "maximum":20
+        },
+        "temperature": {
+            "$id": "#/properties/temperature",
+            "type": "integer"
+        },
+        "geometry": {
+            "$id": "#/properties/geometry",
+            "type": "object",
+            "properties": {
+                "type": {
+                    "$id": "#/properties/geometry/properties/type",
+                    "type": "string"
+                },
+                "projection": {
+                    "$id": "#/properties/geometry/properties/projection",
+                    "type": "string"
+                },
+                "coordinates": {
+                    "$id": "#/properties/geometry/properties/coordinates",
+                    "type": "object",
+                    "properties": {
+                        "latitude": {
+                            "$id": "#/properties/geometry/properties/coordinates/properties/latitude",
+                            "type": "number"
+                        },
+                        "longitude": {
+                            "$id": "#/properties/geometry/properties/coordinates/properties/longitude",
+                            "type": "number"
+                        }
+                    },
+                    "additionalProperties": false
+                }
+            },
+            "additionalProperties": false
+        }
+    },
+    "additionalProperties": false
+}

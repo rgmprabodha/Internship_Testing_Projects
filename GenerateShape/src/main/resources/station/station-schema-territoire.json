@@ -1,0 +1,42 @@
+ {
+    "type": "object",
+    "required": [
+       "station_id"
+    ],
+    "properties": {
+       "station_id": {
+          "type": "string",
+          "description": "Unique identifiant for station (uuid or mac address)"
+       },
+       "geometry": {
+          "description": "coordinates of sensor in projection 4326",
+          "type": "object",
+           "properties": {
+               "type": {
+                  "type": "string",
+                  "description": "type of geometry",
+                  "default": "Point"
+               },
+               "projection": {
+                  "type": "string",
+                  "description": "coordinate referential",
+                  "default": "EPSG:4326"
+               },
+               "coordinates": {
+                  "type": "object",
+                  "description": "coordinate",
+                  "properties": {
+                     "latitude": {
+                        "type": "number",
+                        "description": "latitude"
+                     },
+                     "longitude": {
+                        "type": "number",
+                        "description": "longitude"
+                     }
+                  }
+            	}
+         	}
+       }
+    }
+}

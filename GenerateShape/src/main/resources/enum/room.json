@@ -1,0 +1,15 @@
+{
+    "room": [
+	    {
+	    	"id": "X1",
+	    	"plants": ["jasmine", "rose", "plumeria", "orchid"],
+	    	"alarm": "five"
+	       
+	    },
+	    {
+	    	"id": "X2",
+	    	"plants": ["hibiscus", "daisy"],
+	    	"alarm": "five"
+	    }
+	]
+}

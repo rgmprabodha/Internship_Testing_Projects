@@ -1,0 +1,56 @@
+
+{
+    "type": "object",
+    "properties": {
+       "id": {
+          "type": "integer",
+          "description": "Unique identifiant for sensor"
+       },
+       "size": {
+          "type": "integer",
+          "description": "number of sensors on the base"
+       },
+       "brightness": {
+          "type": "number",
+          "description": "Value of brightness"
+       },
+       "humidity": {
+          "type": "number",
+          "description": "value of humidity"
+       },
+       "temperature": {
+          "type": "number",
+          "description": "value of temperature"
+       },
+       "geometry": {
+          "description": "coordinates of sensor in projection 4326",
+          "type": "object",
+           "properties": {
+               "type": {
+                  "type": "string",
+                  "description": "type of geometry",
+                  "default": "Point"
+               },
+               "projection": {
+                  "type": "string",
+                  "description": "coordinate referential",
+                  "default": "EPSG:4326"
+               },
+               "coordinates": {
+                  "type": "object",
+                  "description": "coordinate",
+                  "properties": {
+                     "latitude": {
+                        "type": "number",
+                        "description": "latitude"
+                     },
+                     "longitude": {
+                        "type": "number",
+                        "description": "longitude"
+                     }
+                  }
+            	}
+         	}
+       }
+    }
+}

@@ -1,0 +1,55 @@
+{
+    "profile_room[*]_sensor[*]": {
+        "js_path": "room[*].sensor[*].",
+        "value_node_kind": "non_literal",
+        "array_max_value_nodes": 5,
+        "array_min_value_nodes": 2
+    },
+    "profile_room[*]_sensor[*]_expire": {
+        "literal_data_type": "string",
+        "js_path": "room[*].sensor[*].expire",
+        "value_node_kind": "literal"
+    },
+    "profile_room[*]_sensor[*]_id": {
+        "literal_data_type": "string",
+        "js_path": "room[*].sensor[*].id",
+        "value_node_kind": "literal"
+    },
+    "profile_room[*]_sensor[*]_humidity": {
+        "numeric_maximum": 80,
+        "literal_data_type": "integer",
+        "js_path": "room[*].sensor[*].humidity",
+        "value_node_kind": "literal",
+        "numeric_exclusive_minimum": 24
+    },
+    "profile_room[*]_id": {
+        "literal_data_type": "string",
+        "js_path": "room[*].id",
+        "value_node_kind": "literal"
+    },
+    "profile_room[*]_sensor[*]_temperature": {
+        "numeric_exclusive_maximum": 32,
+        "literal_data_type": "number",
+        "numeric_minimum": 16,
+        "js_path": "room[*].sensor[*].temperature",
+        "value_node_kind": "literal"
+    },
+    "profile_room[*]_sensor[*]_category": {
+        "literal_data_type": "string",
+        "js_path": "room[*].sensor[*].category",
+        "value_node_kind": "literal"
+    },
+    "profile_room[*]": {
+        "js_path": "room[*].",
+        "value_node_kind": "non_literal",
+        "array_max_value_nodes": 5,
+        "array_min_value_nodes": 2
+    },
+    "profile_room[*]_plants[*]": {
+        "literal_data_type": "string",
+        "js_path": "room[*].plants[*].",
+        "value_node_kind": "literal",
+        "array_max_value_nodes": 5,
+        "array_min_value_nodes": 2
+    }
+}
